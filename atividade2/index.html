@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .calculator {
+            max-width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculadora Simples</h1>
+        <input type="number" id="number1" placeholder="Digite o primeiro número">
+        <select id="operation">
+            <option value="add">Adição</option>
+            <option value="subtract">Subtração</option>
+            <option value="multiply">Multiplicação</option>
+            <option value="divide">Divisão</option>
+        </select>
+        <input type="number" id="number2" placeholder="Digite o segundo número">
+        <button id="calculateButton">Calcular</button>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('calculateButton').addEventListener('click', function() {
+            const number1 = parseFloat(document.getElementById('number1').value);
+            const number2 = parseFloat(document.getElementById('number2').value);
+            const operation = document.getElementById('operation').value;
+            const resultDiv = document.getElementById('result');
+
+            if (isNaN(number1) || isNaN(number2)) {
+                resultDiv.textContent = "Por favor, insira números válidos.";
+                return;
+            }
+
+            let result;
+            switch (operation) {
+                case 'add':
+                    result = number1 + number2;
+                    break;
+                case 'subtract':
+                    result = number1 - number2;
+                    break;
+                case 'multiply':
+                    result = number1 * number2;
+                    break;
+                case 'divide':
+                    if (number2 === 0) {
+                        resultDiv.textContent = "Divisão por zero não é permitida.";
+                        return;
+                    }
+                    result = number1 / number2;
+                    break;
+                default:
+                    resultDiv.textContent = "Operação inválida.";
+                    return;
+            }
+
+            resultDiv.textContent = `Resultado: ${result}`;
+        });
+    </script>
+</body>
+</html>

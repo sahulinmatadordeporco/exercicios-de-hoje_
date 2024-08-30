@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interação com Eventos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .message {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interação com Eventos</h1>
+    <input type="text" id="inputText" placeholder="Digite algo...">
+    <button id="showMessageButton">Exibir Mensagem</button>
+    <div id="message" class="message"></div>
+
+    <script>
+        document.getElementById('showMessageButton').addEventListener('click', function() {
+            const inputText = document.getElementById('inputText').value;
+            const messageDiv = document.getElementById('message');
+            
+            if (inputText.trim() === "") {
+                messageDiv.textContent = "Por favor, digite algo no campo de texto.";
+            } else {
+                messageDiv.textContent = `Você digitou: ${inputText}`;
+            }
+        });
+    </script>
+</body>
+</html>

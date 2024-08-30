@@ -1,0 +1,27 @@
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .miniatura {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .destaque {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    margin-top: 20px;
+  }
+  
+  .imagem-destaque {
+    max-width: 80%;
+    max-height: 80%;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
